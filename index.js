@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const cors = require('cors');
 const express = require('express')
 const mongoose = require('mongoose')
 const users = require('./Routes/users')
@@ -10,7 +11,8 @@ const order = require('./Routes/ordering')
 
 // express app
 const app = express()
-
+// Enable CORS for all routes
+app.use(cors());
 // middleware
 app.use(express.json({ limit: '10mb' }));
 
